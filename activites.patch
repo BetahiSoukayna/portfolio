@@ -1,0 +1,184 @@
+diff --git a/src/app/activites/page.tsx b/src/app/activites/page.tsx
+new file mode 100644
+index 0000000..d40fdf5
+--- /dev/null
++++ b/src/app/activites/page.tsx
+@@ -0,0 +1,47 @@
++import type { Metadata } from "next";
++import Link from "next/link";
++import { ArrowLeft } from "lucide-react";
++import { Footer } from "@/components/Footer";
++import { ActivityCard } from "@/components/ActivityCard";
++import { activities } from "rag_systeme/data/activities";
++
++export const metadata: Metadata = {
++  title: "Activités | Soukayna Betahi",
++  description:
++    "Hackathons, événements de club, formations et engagement associatif de Soukayna Betahi.",
++};
++
++export default function ActivitesPage() {
++  const sorted = [...activities].sort((a, b) => b.date.localeCompare(a.date));
++
++  return (
++    <>
++      <main className="pb-20 pt-28">
++        <div className="section">
++          <Link
++            href="/"
++            className="mb-8 inline-flex items-center gap-2 text-sm text-(--muted) transition-colors hover:text-(--accent)"
++          >
++            <ArrowLeft size={16} />
++            Retour au portfolio
++          </Link>
++
++          <h1 className="mb-4 text-3xl font-bold sm:text-5xl">
++            Activités &{" "}
++            <span className="text-gradient-shimmer">Certifications</span>
++          </h1>
++          <p className="mb-12 max-w-2xl text-base text-(--muted) sm:text-lg">
++            Hackathons, événements de club, formations et engagement associatif.
++          </p>
++
++          <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
++            {sorted.map((a) => (
++              <ActivityCard key={a.id} a={a} />
++            ))}
++          </div>
++        </div>
++      </main>
++      <Footer />
++    </>
++  );
++}
+diff --git a/src/app/layout.tsx b/src/app/layout.tsx
+index 3404c3e..b84e80f 100644
+--- a/src/app/layout.tsx
++++ b/src/app/layout.tsx
+@@ -4,7 +4,7 @@ import { ThemeProvider } from "@/components/ThemeProvider";
+ import { Navbar } from "@/components/Navbar";
+ 
+ export const metadata: Metadata = {
+-  title: "SB",
++  title: "Soukayna Betahi | Ingénieure IA",
+   description: "Portfolio d'etudiante Ingénieure en Intelligence Artificielle",
+   icons: {
+     icon: "/images/logo.jpg",
+diff --git a/src/app/page.tsx b/src/app/page.tsx
+index 253dded..5ab30d7 100644
+--- a/src/app/page.tsx
++++ b/src/app/page.tsx
+@@ -7,7 +7,7 @@ import { Skills } from "@/sections/Skills";
+ import { Other } from "@/sections/Other";
+ 
+ export const metadata: Metadata = {
+-  title: "SB",
++  title: "Soukayna Betahi | Ingénieure IA",
+   description:
+     "Découvrez le portfolio de Soukayna Betahi, ses projets, ses compétences et son parcours en intelligence artificielle.",
+ };
+diff --git a/src/components/Navbar.tsx b/src/components/Navbar.tsx
+index 8a38284..d7515d2 100644
+--- a/src/components/Navbar.tsx
++++ b/src/components/Navbar.tsx
+@@ -1,20 +1,22 @@
+ "use client";
+ 
+ import { useState, useEffect } from "react";
++import { usePathname } from "next/navigation";
+ import { Menu, X } from "lucide-react";
+ import { ThemeToggle } from "./ThemeToggle";
+ 
+ const navLinks = [
+-  { href: "#home", label: "Accueil" },
+-  { href: "#about", label: "À propos" },
+-  { href: "#projects", label: "Projets" },
+-  { href: "#skills", label: "Compétences" },
+-  { href: "#contact", label: "Contact" },
++  { href: "/#home", label: "Accueil" },
++  { href: "/#about", label: "À propos" },
++  { href: "/#projects", label: "Projets" },
++  { href: "/#skills", label: "Compétences" },
++  { href: "/#contact", label: "Contact" },
+ ];
+ 
+ export function Navbar() {
+   const [isOpen, setIsOpen] = useState(false);
+   const [scrolled, setScrolled] = useState(false);
++  const pathname = usePathname();
+ 
+   useEffect(() => {
+     const handleScroll = () => {
+@@ -24,9 +26,12 @@ export function Navbar() {
+     return () => window.removeEventListener("scroll", handleScroll);
+   }, []);
+ 
+-  const handleLinkClick = (href: string) => {
++  // Sur la page d'accueil : défilement doux. Ailleurs : navigation normale vers /#section.
++  const handleLinkClick = (e: React.MouseEvent, href: string) => {
+     setIsOpen(false);
+-    const element = document.querySelector(href);
++    if (pathname !== "/") return;
++    e.preventDefault();
++    const element = document.querySelector(href.replace("/", ""));
+     if (element) {
+       element.scrollIntoView({ behavior: "smooth" });
+     }
+@@ -42,7 +47,7 @@ export function Navbar() {
+     >
+       <div className="mx-auto flex max-w-7xl items-center justify-between px-4 py-4 sm:px-6 lg:px-8">
+         <a
+-          href="#home"
++          href="/"
+           className="text-xl font-bold bg-linear-to-r from-(--accent) to-(--gradient-end) bg-clip-text text-transparent"
+         >
+           Soukayna.ai
+@@ -55,10 +60,7 @@ export function Navbar() {
+               <li key={link.href}>
+                 <a
+                   href={link.href}
+-                  onClick={(e) => {
+-                    e.preventDefault();
+-                    handleLinkClick(link.href);
+-                  }}
++                  onClick={(e) => handleLinkClick(e, link.href)}
+                   className="text-sm font-medium text-(--muted) transition-colors hover:text-(--accent)"
+                 >
+                   {link.label}
+@@ -88,10 +90,7 @@ export function Navbar() {
+               <li key={link.href}>
+                 <a
+                   href={link.href}
+-                  onClick={(e) => {
+-                    e.preventDefault();
+-                    handleLinkClick(link.href);
+-                  }}
++                  onClick={(e) => handleLinkClick(e, link.href)}
+                   className="block text-sm font-medium text-(--muted) transition-colors hover:text-(--accent)"
+                 >
+                   {link.label}
+diff --git a/src/sections/Other.tsx b/src/sections/Other.tsx
+index b81f1f5..af56d10 100644
+--- a/src/sections/Other.tsx
++++ b/src/sections/Other.tsx
+@@ -8,9 +8,9 @@ export function Other() {
+     {
+       key: "certifications",
+       icon: Award,
+-      title: "Certifications",
++      title: "Activités & Certifications",
+       desc: "Veille IA, Hackathons, Engagement associatif, Clubs tech",
+-      href: "#contact",
++      href: "/activites",
+       color: "from-violet-500 to-purple-500",
+     },
+     {
+@@ -33,7 +33,7 @@ export function Other() {
+ 
+   return (
+     <section
+-      id="other"
++      id="contact"
+       className="relative overflow-hidden pt-0 pb-24 sm:pb-32"
+       style={{ scrollMarginTop: "120px" }}
+     >

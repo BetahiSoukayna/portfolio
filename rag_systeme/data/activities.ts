@@ -37,9 +37,7 @@ export const activities: Activity[] = [
     type: "club_event",
     instagram: "",
     images: ["/images/events/riseher1.png",
-            "/images/events/orienation.png",
-
-    ],
+            "/images/events/orientation.png"],
   },
   {
     id: "forum-entreprises-eniad",

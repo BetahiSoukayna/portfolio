@@ -9,17 +9,17 @@ export interface Social {
 export const socials: Social[] = [
   {
     name: "GitHub",
-    url: "github.com/BetahiSoukayna",
+    url: "https://github.com/BetahiSoukayna",
     icon: Github,
   },
   {
     name: "LinkedIn",
-    url: "linkedin.com/in/soukayna-betahi-53400135a",
+    url: "https://www.linkedin.com/in/soukayna-betahi-53400135a",
     icon: Linkedin,
   },
   {
     name: "Email",
-    url: "soukaynabetahi12@gmail.com",
+    url: "mailto:soukaynabetahi12@gmail.com",
     icon: Mail,
   },
 ];

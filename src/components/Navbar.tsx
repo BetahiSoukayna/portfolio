@@ -1,20 +1,22 @@
 "use client";
 
 import { useState, useEffect } from "react";
+import { usePathname } from "next/navigation";
 import { Menu, X } from "lucide-react";
 import { ThemeToggle } from "./ThemeToggle";
 
 const navLinks = [
-  { href: "#home", label: "Accueil" },
-  { href: "#about", label: "À propos" },
-  { href: "#projects", label: "Projets" },
-  { href: "#skills", label: "Compétences" },
-  { href: "#contact", label: "Contact" },
+  { href: "/#home", label: "Accueil" },
+  { href: "/#about", label: "À propos" },
+  { href: "/#projects", label: "Projets" },
+  { href: "/#skills", label: "Compétences" },
+  { href: "/#contact", label: "Contact" },
 ];
 
 export function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
+  const pathname = usePathname();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -24,9 +26,12 @@ export function Navbar() {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  const handleLinkClick = (href: string) => {
+  // Sur la page d'accueil : défilement doux. Ailleurs : navigation normale vers /#section.
+  const handleLinkClick = (e: React.MouseEvent, href: string) => {
     setIsOpen(false);
-    const element = document.querySelector(href);
+    if (pathname !== "/") return;
+    e.preventDefault();
+    const element = document.querySelector(href.replace("/", ""));
     if (element) {
       element.scrollIntoView({ behavior: "smooth" });
     }
@@ -42,7 +47,7 @@ export function Navbar() {
     >
       <div className="mx-auto flex max-w-7xl items-center justify-between px-4 py-4 sm:px-6 lg:px-8">
         <a
-          href="#home"
+          href="/"
           className="text-xl font-bold bg-linear-to-r from-(--accent) to-(--gradient-end) bg-clip-text text-transparent"
         >
           Soukayna.ai
@@ -55,10 +60,7 @@ export function Navbar() {
               <li key={link.href}>
                 <a
                   href={link.href}
-                  onClick={(e) => {
-                    e.preventDefault();
-                    handleLinkClick(link.href);
-                  }}
+                  onClick={(e) => handleLinkClick(e, link.href)}
                   className="text-sm font-medium text-(--muted) transition-colors hover:text-(--accent)"
                 >
                   {link.label}
@@ -88,10 +90,7 @@ export function Navbar() {
               <li key={link.href}>
                 <a
                   href={link.href}
-                  onClick={(e) => {
-                    e.preventDefault();
-                    handleLinkClick(link.href);
-                  }}
+                  onClick={(e) => handleLinkClick(e, link.href)}
                   className="block text-sm font-medium text-(--muted) transition-colors hover:text-(--accent)"
                 >
                   {link.label}

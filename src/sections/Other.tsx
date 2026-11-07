@@ -8,9 +8,9 @@ export function Other() {
     {
       key: "certifications",
       icon: Award,
-      title: "Certifications",
+      title: "Activités & Certifications",
       desc: "Veille IA, Hackathons, Engagement associatif, Clubs tech",
-      href: "#contact",
+      href: "/activites",
       color: "from-violet-500 to-purple-500",
     },
     {
@@ -33,7 +33,7 @@ export function Other() {
 
   return (
     <section
-      id="other"
+      id="contact"
       className="relative overflow-hidden pt-0 pb-24 sm:pb-32"
       style={{ scrollMarginTop: "120px" }}
     >

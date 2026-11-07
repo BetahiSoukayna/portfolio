@@ -7,7 +7,7 @@ import { Skills } from "@/sections/Skills";
 import { Other } from "@/sections/Other";
 
 export const metadata: Metadata = {
-  title: "SB",
+  title: "Soukayna Betahi | Etudiante Ingénieure IA",
   description:
     "Découvrez le portfolio de Soukayna Betahi, ses projets, ses compétences et son parcours en intelligence artificielle.",
 };

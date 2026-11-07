@@ -36,8 +36,10 @@ export const activities: Activity[] = [
     description: "Événement pour la Journée Internationale de la Femme, centré sur la place des femmes dans la tech.",
     type: "club_event",
     instagram: "",
-    images: ["/images/events/riseher1.png",
-            "/images/events/orientation.png"],
+    images: [
+  "/images/events/riseher1.png",
+  "/images/events/orientation.png",
+],
   },
   {
     id: "forum-entreprises-eniad",

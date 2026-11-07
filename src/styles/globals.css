@@ -1,0 +1,184 @@
+@import "tailwindcss";
+
+:root {
+  /* Light Mode (par défaut) */
+  --font-sans: Inter, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  --background: #faf5ff;
+  --foreground: #1a1a2e;
+  --muted: #4a4a6a;
+  --accent: #8338ec;
+  --accent-hover: #a78bfa;
+  --card: #ffffff;
+  --card-border: rgba(131, 56, 236, 0.2);
+  --gradient-start: #8338ec;
+  --gradient-end: #6d3e52;
+}
+
+.dark {
+  /* Dark Mode */
+  --background: #0a0a0f;
+  --foreground: #e4e4e7;
+  --muted: #a1a1aa;
+  --accent: #8b5cf6;
+  --accent-hover: #a78bfa;
+  --card: #18181b;
+  --card-border: #27272a;
+  --gradient-start: #bf63f1;
+  --gradient-end: #ec4899;
+}
+
+* {
+  border-color: var(--card-border);
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+  background-color: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-sans);
+  scroll-behavior: smooth;
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+  transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
+}
+
+/* Animation pour l'avatar */
+@keyframes soft-pulse {
+  0%, 100% {
+    opacity: 0.6;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1.05);
+  }
+}
+
+.animate-soft-pulse {
+  animation: soft-pulse 3s ease-in-out infinite;
+}
+
+/* Styles adaptatifs pour les cartes et éléments */
+.glass {
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid var(--card-border);
+}
+
+.dark .glass {
+  background: rgba(255, 255, 255, 0.03);
+}
+
+.light .glass {
+  background: rgba(0, 0, 0, 0.02);
+}
+
+.glass-strong {
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid var(--card-border);
+  background: var(--card);
+}
+
+.gradient-text {
+  background: linear-gradient(135deg, var(--gradient-start), var(--gradient-end));
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+@keyframes shimmer-gradient {
+  0% {
+    background-position: 100% 0, 0 0;
+  }
+  100% {
+    background-position: -100% 0, 0 0;
+  }
+}
+
+.text-gradient-shimmer {
+  display: inline-block;
+  background-image:
+    linear-gradient(110deg, transparent 45%, rgba(255, 255, 255, 0.7) 50%, transparent 55%),
+    linear-gradient(135deg, var(--gradient-start), var(--gradient-end));
+  background-size: 200% 100%, 100% 100%;
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: shimmer-gradient 3s infinite linear;
+}
+
+.dark .text-gradient-shimmer {
+  background-image:
+    linear-gradient(110deg, transparent 45%, rgba(255, 255, 255, 0.5) 50%, transparent 55%),
+    linear-gradient(135deg, var(--gradient-start), var(--gradient-end));
+}
+
+/* Scrollbar personnalisée */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--background);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--accent);
+  border-radius: 10px;
+}
+
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--accent-hover);
+}
+
+/* Transitions globales pour le thème */
+.theme-transition {
+  transition: background-color 0.3s ease, 
+              color 0.3s ease, 
+              border-color 0.3s ease,
+              box-shadow 0.3s ease;
+}
+
+/* Appliquer la transition aux éléments principaux */
+section, div, article, button, a, p, h1, h2, h3, h4, span, input, textarea {
+  transition: background-color 0.2s ease, 
+              color 0.2s ease, 
+              border-color 0.2s ease;
+}
+
+/* Éviter la transition sur les animations */
+.no-transition {
+  transition: none !important;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.section {
+  max-width: 80rem;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 1.5rem;
+  padding-right: 1.5rem;
+}
+
+@media (min-width: 640px) {
+  .section {
+    padding-left: 2rem;
+    padding-right: 2rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .section {
+    padding-left: 3rem;
+    padding-right: 3rem;
+  }
+}

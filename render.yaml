@@ -1,0 +1,15 @@
+services:
+  - type: web
+    name: portfolio-rag-api
+    runtime: docker
+    plan: free
+    dockerfilePath: ./Dockerfile
+    dockerContext: .
+    healthCheckPath: /health
+    envVars:
+      - key: GROQ_API_KEY
+        sync: false
+      - key: JINA_API_KEY
+        sync: false
+      - key: CHROMA_PERSIST_DIR
+        value: /app/rag_systeme/chroma_db

@@ -1,0 +1,29 @@
+# Dépendances du service Python (API, RAG et ingestion)
+fastapi>=0.100.0
+uvicorn[standard]>=0.23.0
+python-multipart>=0.0.6
+
+# LangChain et orchestration du graphe RAG
+langchain>=0.1.0
+langchain-community>=0.1.0
+langchain-core>=0.1.0
+langchain-groq>=0.1.0
+langchain-text-splitters>=0.0.1
+langgraph>=0.0.30
+
+# Stockage vectoriel et appels aux modèles
+chromadb>=0.4.0
+sentence-transformers>=2.2.0
+groq>=0.4.0
+openai>=1.0.0
+
+# Extraction et traitement des fichiers
+pypdf>=3.0.0
+pdfplumber>=0.10.0
+PyMuPDF>=1.23.0
+python-docx>=1.1.0
+
+# Configuration, logs et validation API
+python-dotenv>=1.0.0
+pydantic>=2.0.0
+loguru>=0.7.0

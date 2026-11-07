@@ -1,0 +1,88 @@
+{
+  "personal": {
+    "name": "Soukayna Betahi",
+    "title": "Étudiante Ingénieur en Intelligence Artificielle",
+    "email": "soukaynabetahi12@gmail.com",
+    "location": "Oujda, Maroc",
+    "about": "Passionnée par l'IA, je crée des solutions innovantes en Machine Learning et Deep Learning."
+  },
+  "experiences": [
+    {
+      "type": "hackathon",
+      "name": "MIATHON 3ème Édition",
+      "organizer": "UMP & CDG Capital & Africa I",
+      "date": "2026-03",
+      "duration": "72h",
+      "description": "Développement de Strategio, une plateforme intelligente de veille stratégique et géopolitique visant à guider et sécuriser les investissements des entreprises.",
+      "result": "Projet pas encore finalisé",
+      "technologies": ["Python", "IA", "NLP"]
+    },
+    {
+      "type": "hackathon",
+      "name": "AI Hackathon",
+      "organizer": "Organisateur",
+      "date": "2022-05",
+      "duration": "24h",
+      "description": "Conception d'une plateforme médicale intelligente servant d'assistant social et psychiatrique virtuel.",
+      "result": "Idée du projet et mvp",
+      "technologies": ["Python", "IA"]
+    },
+    {
+      "type": "formation",
+      "name": "Formation en Cybersécurité",
+      "organizer": "Club Sekora - ENIAD",
+      "date": "2025",
+      "description": "Cycle de formation pratique en cybersécurité étalé sur 4 séances.",
+      "certification": false
+    },
+    {
+      "type": "formation",
+      "name": "Formation en Machine Learning",
+      "organizer": "Nurl AI Club - ENIAD",
+      "date": "2025",
+      "description": "Formation sur les concepts fondamentaux et pratiques du Machine Learning.",
+      "certification": false
+    },
+    {
+      "type": "club_event",
+      "name": "Rise Her",
+      "organizer": "Nurl AI Club",
+      "role": "Organisatrice / Membre actif",
+      "date": "2026-04",
+      "description": "Organisation d'un événement célébrant la Journée Internationale de la Femme et mettant en avant la place des femmes dans la technologie."
+    },
+    {
+      "type": "club_event",
+      "name": "1ère Édition du Forum Entreprises ENIAD",
+      "organizer": "ENIAD",
+      "role": "Membre de l'équipe Communication",
+      "date": "2025-10",
+      "description": "Gestion et contacte des entreprise pour assister la premier version du forum d'entreprises de l'ENIAD."
+    },
+    {
+      "type": "orientation",
+      "name": "Forum International de l’Étudiant",
+      "organizer": "ENIAD",
+      "role": "Ambassadrice / Représentante",
+      "location": "Oujda",
+      "date": "2025",
+      "description": "Présentation de l'école ENIAD et orientation des futurs étudiants."
+    },
+    {
+      "type": "orientation",
+      "name": "Journée d'Orientation Universitaire",
+      "organizer": "ENIAD",
+      "role": "Ambassadrice / Représentante",
+      "location": "Dar Attakafa, Berkane",
+      "date": "2026",
+      "description": "Animation d'un stand de présentation de l'ENIAD et conseil aux élèves."
+    }
+  ],
+  "projects": [
+    {
+      "name": "Assistant IA avec RAG",
+      "description": "Chatbot intelligent utilisant RAG pour répondre aux questions sur le portfolio.",
+      "technologies": ["Next.js", "Groq", "ChromaDB", "LangChain"]
+    }
+  ]
+}

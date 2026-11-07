@@ -21,7 +21,11 @@ export const activities: Activity[] = [
     description: "Hackathon de 72h : développement d'une plateforme de veille stratégique et géopolitique.",
     type: "hackathon",
     instagram: "", // https://www.instagram.com/p/XXXXXXXX/
-    images: ["/images/events/miathon-1.jpg"],
+    images: [
+  "/images/events/miathon2.jpeg",
+  "/images/events/miathon3.jpeg",
+  "/images/events/miathon1.jpeg",
+],
   },
   {
     id: "rise-her",
@@ -32,7 +36,7 @@ export const activities: Activity[] = [
     description: "Événement pour la Journée Internationale de la Femme, centré sur la place des femmes dans la tech.",
     type: "club_event",
     instagram: "",
-    images: [],
+    images: ["/images/events/orientation.png"],
   },
   {
     id: "forum-entreprises-eniad",

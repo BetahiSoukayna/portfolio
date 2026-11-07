@@ -1,17 +1,11 @@
 import { Activity } from "rag_systeme/data/activities";
-import Image from "next/image";
+import { ImageCarousel } from "./ImageCarousel";
 
 export function ActivityCard({ a }: { a: Activity }) {
   return (
     <article className="overflow-hidden rounded-2xl border border-black/10 dark:border-white/10">
       {a.images && a.images.length > 0 && (
-        <div className="flex snap-x gap-1 overflow-x-auto">
-          {a.images.map((src) => (
-            <div key={src} className="relative h-48 w-full min-w-full snap-center">
-              <Image src={src} alt={a.title} fill sizes="100vw" className="object-cover" />
-            </div>
-          ))}
-        </div>
+        <ImageCarousel images={a.images} alt={a.title} />
       )}
 
       <div className="space-y-2 p-4">

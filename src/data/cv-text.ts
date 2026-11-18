@@ -1,38 +1,52 @@
+
 export const CV_TEXT = `
 BETAHI Soukayna
-Recherche un stage PFA – Python Developer – AI Engineering & Scalable Applications.
-Étudiante ingénieure en IA à l'ENIAD.
+Étudiante ingénieure en IA (ENIAD).
+Recherche un stage PFE de 6 mois dès janvier 2027.
 Email : soukaynabetahi12@gmail.com
 Localisation : Oujda, Maroc
 LinkedIn : linkedin.com/in/soukayna-betahi-53400135a
 GitHub : github.com/BetahiSoukayna
 
 PROFIL
-Étudiante ingénieure en IA à l'ENIAD, passionnée par le développement d'applications intelligentes, l'architecture d'agents IA (LangGraph) et l'intégration de LLMs dans des plateformes web et mobiles. Maîtrise l'ensemble du cycle de développement (backend Python/FastAPI, frontend, bases de données), avec une solide maîtrise des structures de données, des algorithmes et des principes du génie logiciel. Prête à s'intégrer à distance au sein d'une équipe distribuée.
+Étudiante ingénieure en IA à l'ENIAD, spécialisée en agents autonomes, assistants conversationnels et traitement documentaire. Je conçois des solutions IA de bout en bout, avec des résultats mesurables : 80 % de gain de temps sur la vérification des dossiers au CRI, réponses en moins de 5 s et précision prédictive supérieure à 90 %.
+
+EXPÉRIENCE
+- Stagiaire Ingénieure en IA – Document AI, Centre Régional d'Investissement (CRI) (juillet – septembre 2026) :
+  conçu un moteur de vérification de la complétude des dossiers d'investissement, couvrant 30 procédures de la CRUI (Commission Régionale Unifiée d'Investissement) et 40 types de documents ;
+  construit le pipeline end-to-end en Python : extraction de texte PDF, OCR avec fallback pour le manuscrit, classification de documents par règles (mots-clés, synonymes, regex) et génération du rapport de complétude ;
+  ajouté un Vision-Language Model en dernier recours pour les documents que les règles ne savent pas classer.
+- AI Productivity Assistant – Projet de fin d'année (PFA), ENIAD (mars – mai 2026) :
+  co-développé un assistant IA qui automatise les workflows Google Workspace (Gmail, Drive, Calendar, Tasks) ;
+  pris en charge le pipeline RAG (recherche sémantique sur ChromaDB) et l'orchestration LangGraph, avec un temps de réponse inférieur à 5 s.
+  Stack : Python, LangGraph, ChromaDB, Groq API, FastAPI, React.
+- Développeuse logiciel, Sup MTI Oujda (avril – juin 2024) :
+  conçu et développé une plateforme web de gestion et de suivi des projets académiques, pour centraliser les informations et améliorer le suivi ;
+  assuré la structuration du code, le débogage et la validation fonctionnelle ;
+  mené les tests utilisateurs et ajusté l'ergonomie (UI/UX) à partir des retours.
+- Modèle prédictif de détection de l'hypertension – Projet de fin d'études (DUT) (février – avril 2024) :
+  développé un pipeline d'analyse de données multivariées pour la détection précoce de l'hypertension (prétraitement, feature engineering, sélection de modèles) ;
+  atteint une précision de validation supérieure à 90 % ; exporté un modèle léger prêt pour une intégration via API.
+  Stack : Python, Scikit-learn, Pandas, NumPy.
+
+AUTRES PROJETS PRÉSENTÉS SUR LE PORTFOLIO
+- No9taty (portefeuille académique, application mobile) : application de gestion de notes avec une architecture offline-first, pour une expérience fluide et la sécurité des données locales. Stack : Flutter, Dart, SQLite, gestion d'état.
+- Système Multi-Agents Clinique : pipeline Python d'agents autonomes communicants, avec une architecture modulaire orchestrant 6 outils MCP et une validation humaine asynchrone. Stack : Python, LangGraph, FastAPI, PostgreSQL, Streamlit.
+
+COMPÉTENCES
+- Document AI : OCR (Tesseract, benchmarking EasyOCR), extraction de texte PDF, classification de documents, regex, Vision-Language Models.
+- LLM et IA générative : RAG, LangGraph, LangChain, ChromaDB, embeddings, recherche sémantique (BM25), prompt engineering, APIs LLM (OpenAI, Gemini, Claude, Groq).
+- Machine Learning et NLP : Scikit-learn, Keras, TensorFlow, spaCy, NLTK, feature engineering, évaluation de modèles.
+- Programmation et données : Python, SQL, Pandas, NumPy, PostgreSQL, MySQL, SQLite.
+- Backend et outils : FastAPI, API REST, Git, GitHub, Docker, Scrum, Kanban.
+- Sécurité de l'IA : détection d'injection de prompt, sûreté des LLM, sensibilisation au RGPD.
 
 FORMATION
-- ENIAD – École Nationale de l'IA et du Digital, UMP – Cycle Ingénieur d'État en Intelligence Artificielle (2024 – 2027)
-- EST – École Supérieure de Technologie, Oujda – DUT en Informatique de Gestion (2022 – 2024)
-- Lycée Moulay Ali-Chérif, Er-Rich – Baccalauréat Sciences Physiques (2021 – 2022)
+- Cycle Ingénieur d'État en Intelligence Artificielle, ENIAD, Berkane (2024 – 2027)
+- DUT en Informatique de Gestion, EST Oujda (2022 – 2024)
+- Baccalauréat Sciences Physiques, Er-Rich (2021 – 2022)
 
-EXPÉRIENCE PROFESSIONNELLE
-- Sup Mti Oujda (avril – juin 2024) – Développeuse logiciel : architecture et développement d'une plateforme web centralisée pour la gestion intégrée et le suivi des projets académiques ; code propre, modulaire et structuré selon les bonnes pratiques d'ingénierie logicielle ; participation au débogage, à la résolution de problèmes et à la validation des fonctionnalités.
-- AI-Willaya d'Oujda-Angad (juillet – août 2023) – Software Developer Intern : conception d'une plateforme de gestion et d'optimisation des calendriers de rendez-vous en ligne ; maintenance corrective, troubleshooting et optimisation des requêtes de bases de données pour la scalabilité.
-
-PROJETS RÉALISÉS
-- AI Productivity Assistant (Python & AI Workflows) : application Python scalable (RAG + LangGraph) pour automatiser des workflows complexes sur Google Workspace. Traitement avancé du contexte et optimisation des requêtes d'API. Recherche sémantique et traitement de documents complexes en moins de 5 secondes. Stack : Python, LangGraph, RAG, ChromaDB, FastAPI, Groq API.
-- No9taty (portefeuille académique, application mobile) : application de gestion de notes avec une architecture offline-first, pour une expérience fluide et la sécurité des données locales. Synchronisation fluide, zéro perte de données. Stack : Flutter, Dart, SQLite, gestion d'état (state management).
-- Système Multi-Agents Clinique (orchestration et architecture) : pipeline Python d'agents autonomes communicants, avec une architecture modulaire orchestrant 6 outils MCP et une validation humaine asynchrone. Code asynchrone efficace. Stack : Python, LangGraph, FastAPI, PostgreSQL, Streamlit.
-- Modèle ML prédictif (analyse de données multi-variables) : pipeline complet d'analyse de données de santé pour la détection précoce de l'hypertension (prétraitement, feature engineering, sélection de modèles). Précision de validation supérieure à 90 %, modèle léger exporté et prêt pour une API. Stack : Python, Scikit-learn, Pandas, NumPy.
-
-COMPÉTENCES TECHNIQUES
-- Intelligence artificielle : architectures multi-agents (LangGraph), LangChain, RAG, intégration d'APIs LLM (OpenAI, Groq), outils MCP, Machine Learning (Scikit-learn, classification, régression, clustering).
-- Backend, API et bases de données : Python (avancé), FastAPI, PHP, PostgreSQL, MySQL, SQLite, ChromaDB (base vectorielle), Supabase.
-- Développement frontend et mobile : Flutter, Dart, interface web (HTML5, CSS3, JavaScript), React (notions).
-- Outils et collaboration : Git, GitHub Actions, architectures RESTful, méthodes agiles, Linux.
-- Langues : français (courant/maîtrisé), anglais (technique/intermédiaire), arabe (natif).
-
-CERTIFICATIONS, ACTIVITÉS ET INTÉRÊTS
-- Engagement et hackathons : co-organisatrice du Forum Entreprises ENIAD, hackathon MIATHON'03 (projet Strategio, outil IA géopolitique), membre active du Club IA ENIAD.
-- Intérêts : applications web et mobiles intelligentes, UX/UI adaptative pour l'IA, veille technologique en IA générative, hackathons, projets open source.
+LANGUES ET MÉTHODES
+- Langues : français (C1), anglais (B2+).
+- Méthodes : Agile / Scrum, leadership technique, veille technologique.
 `;

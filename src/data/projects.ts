@@ -9,6 +9,7 @@ export interface Project {
   deviceType: "desktop" | "mobile";
   bgColor?: string;
   screenshots?: string[];
+  video?: string;
 }
 
 export const projects: Project[] = [
@@ -25,6 +26,7 @@ export const projects: Project[] = [
     screenshots: [
       "https://images.unsplash.com/photo-1677442136019-21780ecad995?q=80&w=1400&auto=format&fit=crop",
     ],
+    video: "https://www.youtube.com/watch?v=XXXXXXXXXXX",
   },
   {
     id: "no9taty",

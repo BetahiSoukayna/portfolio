@@ -1,10 +1,12 @@
 "use client";
 
+import { useState } from "react";
 import { motion } from "framer-motion";
 import Image from "next/image";
-import { ArrowUpRight, Github } from "lucide-react";
+import { ArrowUpRight, Github, Play } from "lucide-react";
 import type { Project } from "@/data/projects";
 import { cn } from "@/lib/utils";
+import { VideoModal } from "./VideoModal";
 
 interface ProjectCardProps {
   project: Project;
@@ -14,6 +16,8 @@ interface ProjectCardProps {
 export function ProjectCard({ project, index }: ProjectCardProps) {
   const isMobile = project.deviceType === "mobile";
   const screenshots = project.screenshots || [];
+  const [showVideo, setShowVideo] = useState(false);
+  const hasLiveDemo = Boolean(project.demo && project.demo !== "#");
 
   return (
     <motion.article
@@ -39,28 +43,43 @@ export function ProjectCard({ project, index }: ProjectCardProps) {
             {project.title}
           </h3>
 
-          <div className="flex items-center gap-2 opacity-100 transition-opacity duration-300 xl:opacity-0 xl:group-hover:opacity-100">
-            {project.github ? (
-              <a
-                href={project.github}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center gap-1.5 rounded-lg bg-linear-to-r from-purple-600 via-violet-600 to-fuchsia-600 px-2.5 py-1.5 text-[10px] font-semibold text-white transition-all duration-300 hover:shadow-lg hover:shadow-purple-500/50 md:text-xs"
+          <div className="flex items-center gap-2">
+            {/* Bouton Démo : toujours visible */}
+            {project.video ? (
+              <button
+                type="button"
+                onClick={() => setShowVideo(true)}
+                className="inline-flex items-center gap-1.5 rounded-lg border border-(--card-border) bg-(--card) px-2.5 py-1.5 text-[10px] font-semibold text-(--foreground) transition-all duration-300 hover:border-violet-500 hover:text-violet-500 md:text-xs"
               >
-                <Github size={12} />
-                Star
-              </a>
+                <Play size={12} className="fill-current" />
+                Démo
+              </button>
             ) : null}
-            {project.demo ? (
-              <a
-                href={project.demo}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="rounded-full p-1.5 text-(--muted) transition-all hover:bg-(--card) hover:text-(--foreground)"
-              >
-                <ArrowUpRight size={18} />
-              </a>
-            ) : null}
+
+            {/* Star et lien du site : visibles au survol sur grand écran */}
+            <div className="flex items-center gap-2 opacity-100 transition-opacity duration-300 xl:opacity-0 xl:group-hover:opacity-100">
+              {project.github ? (
+                <a
+                  href={project.github}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-1.5 rounded-lg bg-linear-to-r from-purple-600 via-violet-600 to-fuchsia-600 px-2.5 py-1.5 text-[10px] font-semibold text-white transition-all duration-300 hover:shadow-lg hover:shadow-purple-500/50 md:text-xs"
+                >
+                  <Github size={12} />
+                  Star
+                </a>
+              ) : null}
+              {hasLiveDemo ? (
+                <a
+                  href={project.demo}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="rounded-full p-1.5 text-(--muted) transition-all hover:bg-(--card) hover:text-(--foreground)"
+                >
+                  <ArrowUpRight size={18} />
+                </a>
+              ) : null}
+            </div>
           </div>
         </div>
       </header>
@@ -166,6 +185,15 @@ export function ProjectCard({ project, index }: ProjectCardProps) {
           </span>
         ))}
       </footer>
+
+      {showVideo && project.video ? (
+        <VideoModal
+          url={project.video}
+          title={project.title}
+          portrait={isMobile}
+          onClose={() => setShowVideo(false)}
+        />
+      ) : null}
     </motion.article>
   );
 }

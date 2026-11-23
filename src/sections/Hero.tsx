@@ -24,7 +24,7 @@ export function Hero() {
             <p className="text-lg text-(--muted) max-w-xl leading-relaxed">
               Étudiante Ingénieur en IA à l&apos;ENIAD, passionnée par la création 
               de solutions innovantes en Machine Learning, Deep Learning et 
-              développement d&apos;applications intelligentes.
+              développement des systèmes intelligentes.
             </p>
             
             <div className="flex flex-wrap gap-4">
@@ -48,7 +48,7 @@ export function Hero() {
             {/* Badge Disponibilité */}
             <div className="rounded-lg bg-green-500/10 px-4 py-2 border border-green-500/20 inline-block">
               <p className="text-sm font-medium text-green-500">DISPONIBLE POUR</p>
-              <p className="text-sm text-(--muted)">Stage PFE </p>
+              <p className="text-sm text-(--muted)">Stage PFE à partir de février 2027 </p>
             </div>
           </div>
           <div className="flex justify-center lg:justify-end">

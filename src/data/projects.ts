@@ -54,6 +54,30 @@ export const projects: Project[] = [
       "/images/assisstant5.png",
     ],
   },
+
+{
+  id: "clinical-multi-agent",
+  title: "ClinicaFlow – Multi-Agent Clinical Assistant",
+  kind: "AI Agents · Santé · Human-in-the-Loop",
+  description:
+    "Plateforme d'orientation clinique simulée basée sur une architecture multi-agents avec LangGraph. Un Diagnostic Agent collecte les informations du patient à travers 5 questions successives, produit une synthèse clinique préliminaire et une recommandation intermédiaire. Un médecin intervient dans le workflow via un mécanisme Human-in-the-Loop avant que le Report Agent génère un rapport final structuré.",
+  tags: [
+    "Python",
+    "LangGraph",
+    "LangChain",
+    "AI Agents",
+    "FastAPI",
+    "MCP",
+    "Streamlit"
+  ],
+  featured: true,
+  deviceType: "desktop",
+  imageFit: "contain",
+  bgColor: "bg-linear-to-br from-cyan-500/90 to-blue-600/90",
+  screenshots: [
+    "/images/ClinicaFlow.png",
+  ],
+},
   {
     id: "no9taty",
     title: "No9taty",

@@ -4,72 +4,89 @@ export interface Project {
   description: string;
   tags: string[];
   github?: string;
-  demo?: string;
+  demo?: string;   // lien d'un site en ligne (optionnel)
+  video?: string;  // lien de la vidéo de démo (YouTube, Vimeo, Drive ou /videos/xxx.mp4)
+  kind?: string;   // étiquette au-dessus du titre (défaut : "Application desktop" ou "Application mobile")
+  imageFit?: "cover" | "contain"; // "contain" = capture entière, sans recadrage
   featured?: boolean;
   deviceType: "desktop" | "mobile";
   bgColor?: string;
   screenshots?: string[];
-  video?: string;
 }
 
 export const projects: Project[] = [
   {
-    id: "ai-assistant-rag",
-    title: "AI Productivity Assistant",
-    description: "Assistant IA avec RAG et LangGraph pour la recherche et l'automatisation sur Gmail et Drive / Calandrier et Task. Recherche des documents complexe en moins de 5 secondes.",
-    tags: ["Python", "RAG", "LangGraph", "FastAPI", "ChromaDB"],
-    github: "https://github.com/OUALIDENIAD20/project-pfa-ia-productivity-google-workspace.git",
-    demo: "#",
+    id: "cri-document-ai",
+    title: "Vérification des dossiers d'investissement (CRI)",
+    kind: "Document AI · Back-office",
+    description:
+      "Moteur de vérification de la complétude des dossiers d'investissement : 30 procédures CRUI et 40 types de documents. OCR avec fallback pour le manuscrit, classification par règles et Vision-Language Model en dernier recours. Environ 80 % de gain de temps.",
+    tags: ["Python", "OCR", "Document AI", "VLM", "Regex"],
     featured: true,
     deviceType: "desktop",
+    imageFit: "contain",
+    bgColor: "bg-linear-to-br from-sky-500/90 to-indigo-500/90",
+    screenshots: [
+      "/images/cri1.png",
+      "/images/cri2.png",
+      "/images/cri3.png",
+    ],
+  },
+  {
+    id: "ai-assistant-rag",
+    title: "AI Productivity Assistant",
+    kind: "Assistant IA · Google Workspace",
+    description:
+      "Assistant IA avec RAG et LangGraph pour la recherche et l'automatisation sur Gmail, Drive, Calendrier et Tasks. Recherche de documents complexes en moins de 5 secondes.",
+    tags: ["Python", "RAG", "LangGraph", "FastAPI", "ChromaDB"],
+    github: "https://github.com/OUALIDENIAD20/project-pfa-ia-productivity-google-workspace.git",
+    // video: "https://www.youtube.com/watch?v=...",  // à décommenter avec ton vrai lien YouTube
+    featured: true,
+    deviceType: "desktop",
+    imageFit: "contain",
     bgColor: "bg-linear-to-br from-violet-500/90 to-fuchsia-500/90",
     screenshots: [
-      "https://images.unsplash.com/photo-1677442136019-21780ecad995?q=80&w=1400&auto=format&fit=crop",
+      "/images/ai_productivity.png",
+      "/images/assistant1.png",
+      "/images/assisstant2.png",
+      "/images/assisstant3.png",
+      "/images/assisstant4.png",
+      "/images/assisstant5.png",
     ],
-    video: "https://www.youtube.com/watch?v=XXXXXXXXXXX",
   },
   {
     id: "no9taty",
     title: "No9taty",
-    description: "Application mobile de gestion académique avec synchronisation offline-first. Tableau de bord étudiant, authentification, gestion de notes et calcul automatique de moyennes.",
+    description:
+      "Application mobile de gestion académique avec synchronisation offline-first. Tableau de bord étudiant, authentification, gestion de notes et calcul automatique de moyennes.",
     tags: ["Flutter", "Dart", "Supabase", "SQLite"],
     github: "https://github.com/BetahiSoukayna/No9taty.git",
-    demo: "#",
     featured: true,
     deviceType: "mobile",
     bgColor: "bg-linear-to-br from-blue-500/90 to-cyan-500/90",
     screenshots: [
-    "/images/noktaty.jpeg"
-  ],
+      "/images/noktaty1.jpeg",
+      "/images/noktaty2.jpeg",
+      "/images/noktaty3.jpeg",
+      "/images/noktaty4.jpeg",
+      "/images/noktaty5.jpeg",
+      "/images/noktaty6.jpeg",
+      "/images/noktaty7.jpeg",
+      "/images/noktaty8.jpeg",
+      "/images/noktaty9.jpeg",
+    ],
   },
   {
     id: "hypertension-ml",
     title: "Modèle Hypertension ML",
-    description: "Conception et entraînement d'un modèle ML pour la détection précoce de l'hypertension artérielle. Précision clinique > 90%.",
+    kind: "Machine learning · Santé",
+    description:
+      "Conception et entraînement d'un modèle ML pour la détection précoce de l'hypertension artérielle. Précision de validation supérieure à 90 %.",
     tags: ["Python", "Scikit-learn", "Pandas", "NumPy", "Streamlit"],
     github: "https://github.com/BetahiSoukayna/hypertension-ml",
-    demo: "#",
     featured: true,
     deviceType: "desktop",
     bgColor: "bg-linear-to-br from-emerald-500/90 to-teal-500/90",
-    screenshots: [
-      "https://images.unsplash.com/photo-1505751172876-fa1923c5c528?q=80&w=1400&auto=format&fit=crop",
-    ],
+    // screenshots: ["/images/hypertension1.png"],  // ajoute une capture de ton app Streamlit
   },
-
-//   {
-//   id: "clinical-orientation-mas",
-//   title: "Clinical Orientation MAS",
-//   description: "Système multi-agents d'orientation clinique basé sur LangGraph. Workflow supervisé avec agent diagnostique (5 questions patient), synthèse clinique préliminaire, validation Human-in-the-Loop médecin, et génération de rapport final structuré. Exposé via FastAPI avec interface Streamlit et intégration MCP.",
-//   tags: ["LangGraph", "LangChain", "FastAPI", "Streamlit", "MCP", "Python"],
-//   github: "https://github.com/BetahiSoukayna/clinical-orientation-mas",
-//   demo: "#",
-//   featured: true,
-//   deviceType: "desktop",
-//   bgColor: "bg-linear-to-br from-emerald-500/90 to-teal-600/90",
-//   screenshots: [
-//     "https://images.unsplash.com/photo-1576091160550-2173dba999ef?q=80&w=900&auto=format&fit=crop",
-//     "https://images.unsplash.com/photo-1559757148-5c350d0d3c56?q=80&w=900&auto=format&fit=crop",
-//   ],
-// },
 ];

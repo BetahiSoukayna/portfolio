@@ -7,9 +7,16 @@ import { ChevronLeft, ChevronRight } from "lucide-react";
 type Props = {
   images: string[];
   alt: string;
+  aspect?: string; // ex. "aspect-[16/11]" (défaut : portrait 4/5, comme Instagram)
+  fit?: "cover" | "contain"; // "contain" = image entière, sans recadrage
 };
 
-export function ImageCarousel({ images, alt }: Props) {
+export function ImageCarousel({
+  images,
+  alt,
+  aspect = "aspect-[4/5]",
+  fit = "cover",
+}: Props) {
   const trackRef = useRef<HTMLDivElement>(null);
   const [index, setIndex] = useState(0);
   const total = images.length;
@@ -40,14 +47,14 @@ export function ImageCarousel({ images, alt }: Props) {
         {images.map((src, i) => (
           <div
             key={src}
-            className="relative aspect-[4/5] w-full min-w-full snap-center"
+            className={`relative w-full min-w-full snap-center ${aspect}`}
           >
             <Image
               src={src}
               alt={`${alt} - photo ${i + 1}`}
               fill
               sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
-              className="object-cover"
+              className={fit === "contain" ? "object-contain" : "object-cover"}
             />
           </div>
         ))}

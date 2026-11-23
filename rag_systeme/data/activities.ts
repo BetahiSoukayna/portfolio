@@ -50,7 +50,7 @@ export const activities: Activity[] = [
     description: "Gestion et animation de la communication autour du premier forum d'entreprises de l'ENIAD.",
     type: "club_event",
     instagram: "",
-    images: ["C:/Users/LENNOOVO/portfolio-template/portfolio-template/portfolio-template/public/images/events/forum.png"],
+    images: ["/images/events/forum.png"],
   },
   // Forum International de l'Étudiant, Journée d'Orientation (Berkane), etc.
 ];
